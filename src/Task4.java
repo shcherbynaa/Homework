@@ -12,6 +12,8 @@ public class Task4 {
     }
 
     public static int fibonachi(int num){
+        if (num == 0)
+            return 0;
 
         if((num == 1) || (num == 2))
             return 1;
@@ -22,7 +24,7 @@ public class Task4 {
     public static void main(String[] args){
 
         factorial(8);
-        System.out.println(fibonachi(10));
+        System.out.println(fibonachi(0));
 
     }
 }
