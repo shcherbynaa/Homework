@@ -3,7 +3,7 @@ import java.util.Random;
 
 public class Sort {
 
-    static int[] arr = new int[6];
+    static int[] arr = new int[1_000_000];
 
     public static void createArray(int[] arr, int num){
 
@@ -11,13 +11,9 @@ public class Sort {
             arr[i] = (int)(Math.random()*50+1);
         }
 
-        for (int i= 0;i<arr.length;i++){
-            System.out.print(arr[i] + " ");
-        }
     }
 
     public static void insertSort(){
-
         int tmp, key, j;
 
         for (int i = 1; i < arr.length; i++) {
@@ -30,11 +26,6 @@ public class Sort {
             }
                 arr[j+1] = key;
         }
-
-        for (int i= 0;i<arr.length;i++){
-            System.out.print(arr[i] + " ");
-        }
-
     }
 
     public static void bubbleSort(){
@@ -48,48 +39,8 @@ public class Sort {
                 }
             }
         }
-        for (int i= 0;i<arr.length;i++){
-            System.out.print(arr[i] + " ");
-        }
     }
 
-    public static void qSort(){
-        int l = 0;
-        int r = arr.length-1;
-
-        if (l < r){
-            int p = quickSort(arr, l, r);
-
-            quickSort(Sort.arr, l , p-1);
-            quickSort(Sort.arr, p+1, r);
-        }
-
-        for (int i= 0;i<arr.length;i++){
-            System.out.print(arr[i] + " ");
-        }
-
-    }
-
-    public static int quickSort(int arr[], int l, int r){
-        int p = arr[r];
-        int i = (l-1);
-
-        for (int j=l; j < r-1; j++){
-            if (arr[j] <= p){
-                i++;
-
-                int tmp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = tmp;
-            }
-        }
-
-        int tmp = arr[i+1];
-        arr[i+1] = arr[r];
-        arr[r] = tmp;
-
-        return i+1;
-    }
 
     public static void selectionSort(){
         int min;
@@ -107,29 +58,130 @@ public class Sort {
             arr[i] = tmp;
 
         }
-
-        for (int i= 0;i<arr.length;i++){
-            System.out.print(arr[i] + " ");
-        }
-
     }
 
 
 
+   public static void quickSort(int[] arr, int left, int right){
+        if (arr.length == 0)
+            return;
+
+       if (left>=right)
+           return;
+
+       int m = left + (right-left)/2;
+
+       int p = arr[m];
+
+       int i = left;
+       int j = right;
+
+       while (i <= j){
+           while (arr[i] < p) {
+               i++;
+           }
+           while (arr[j] > p){
+               j--;
+           }
+           if (i <= j){
+               int tmp = arr[i];
+               arr[i] = arr[j];
+               arr[j] = tmp;
+               i++;
+               j--;
+           }
+       }
+
+       if (left < j){
+           quickSort(arr,left,j);
+       }
+       if (right > i){
+           quickSort(arr, i, right);
+       }
+   }
+
+   public static void cocktailSort(){
+
+        int left = 0;
+        int right = arr.length-1;
+        boolean flag;
+
+        while (left < right) {
+            flag = false;
+
+            for (int i = left; i < right; i++) {
+                if (arr[i] > arr[i + 1]) {
+                    int tmp = (arr[i]);
+                    arr[i] = arr[i + 1];
+                    arr[i + 1] = tmp;
+                    flag = true;
+                }
+            }
+
+            if (!flag){
+                break;
+            }
+
+            flag = false;
+
+            for (int j = right; j > left; j--) {
+                if (arr[j] < arr[j - 1]) {
+                    int tmp = arr[j];
+                    arr[j] = arr[j - 1];
+                    arr[j - 1] = tmp;
+                    flag = true;
+                }
+            }
+        }
+    }
+
+
     public static void main(String[] args){
-        createArray(arr, 6);
-        System.out.println();
-        System.out.println("Insertion Sort:");
+        createArray(arr, 1_000_000);
+        System.out.println("Insertion Sort");
+
+        long start = System.currentTimeMillis();
         insertSort();
+        long finish = System.currentTimeMillis();
+        long time = finish - start;
+        System.out.println("Time Insertion Sort - " + time);
         System.out.println();
+
+        createArray(arr, 1_000_000);
         System.out.println("Bubble Sort");
+        start = System.currentTimeMillis();
         bubbleSort();
+         finish = System.currentTimeMillis();
+         time = finish - start;
+        System.out.println("Time Bubble Sort - " + time);
+
+        createArray(arr, 1_000_000);
         System.out.println();
         System.out.println("Quick Sort");
-        qSort();
+         start = System.currentTimeMillis();
+        quickSort(arr, 0, arr.length-1);
+        finish = System.currentTimeMillis();
+        time = finish - start;
+        System.out.println("Time Quick Sort - " + time);
+
+        createArray(arr, 1_000_000);
         System.out.println();
         System.out.println("Selection Sort");
-        createArray(arr, 6);
-      //  selectionSort();
+        start = System.currentTimeMillis();
+        selectionSort();
+        finish = System.currentTimeMillis();
+        time = finish - start;
+        System.out.println("Time Selection Sort - " + time);
+
+        System.out.println();
+
+        createArray(arr, 1_000_000);
+        System.out.println("Cocktail Sort");
+        start = System.currentTimeMillis();
+        cocktailSort();
+        finish = System.currentTimeMillis();
+        time = finish - start;
+        System.out.println("Time Cocktail Sort - " + time);
+
     }
 }

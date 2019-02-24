@@ -1,5 +1,5 @@
 public class Task4 {
-    
+
 
     public static int factorial(int num){
         int result = 1;
