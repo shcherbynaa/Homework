@@ -3,7 +3,7 @@ import java.util.Random;
 
 public class Sort {
 
-    static int[] arr = new int[10];
+    static int[] arr = new int[6];
 
     public static void createArray(int[] arr, int num){
 
@@ -53,9 +53,9 @@ public class Sort {
         }
     }
 
-    public static void qSort( int[] arr, int l, int r){
-       // int l = 0;
-        //int r = arr.length-1;
+    public static void qSort(){
+        int l = 0;
+        int r = arr.length-1;
 
         if (l < r){
             int p = quickSort(arr, l, r);
@@ -89,43 +89,47 @@ public class Sort {
         arr[r] = tmp;
 
         return i+1;
-      /*  int tmp;
-        int p = arr[(int)(arr.length/2)];
-        System.out.println(p);
-        int l = 0;
-        int r = arr.length-1;
+    }
 
-        for (int i = l; i < arr.length; i++) {
-            if (arr[i]>p){
-                for (int j = r; j>=0;j--){
-                    if (arr[j]<=p){
-                        tmp = arr[i];
-                        arr[i] = arr[j];
-                        arr[j] = tmp;
-                    }
+    public static void selectionSort(){
+        int min;
+        int index;
+        int tmp;
+        for (int i = 0; i < arr.length -1; i++){
+            min = i;
+            for (int j = i+1; j < arr.length; j++) {
+                if (arr[j]<= arr[min]){
+                    min = j;
                 }
             }
-        }
+            tmp = arr[min];
+            arr[min] = arr[i];
+            arr[i] = tmp;
 
+        }
 
         for (int i= 0;i<arr.length;i++){
             System.out.print(arr[i] + " ");
         }
-        */
+
     }
 
 
 
     public static void main(String[] args){
-        createArray(arr, 10);
+        createArray(arr, 6);
         System.out.println();
-        System.out.println("Sorted Array:");
+        System.out.println("Insertion Sort:");
         insertSort();
         System.out.println();
         System.out.println("Bubble Sort");
         bubbleSort();
         System.out.println();
         System.out.println("Quick Sort");
-        qSort(arr,0,arr.length-1);
+        qSort();
+        System.out.println();
+        System.out.println("Selection Sort");
+        createArray(arr, 6);
+      //  selectionSort();
     }
 }
