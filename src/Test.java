@@ -11,5 +11,5 @@ public class Test {
        int  result = ( ((a == c) && (b == d)) ? 2:((((a>b) && (c>d))) || ((a<b) && (c<d))) ?1:0);
         System.out.println(result);
     }
-    
+
 }
