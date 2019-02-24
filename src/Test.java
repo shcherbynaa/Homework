@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Test {
 
     private static int a = 3;
-    private static int b = 3;
+    private static int b = 4;
     private static int c = 1;
     private static int d = 2;
     
