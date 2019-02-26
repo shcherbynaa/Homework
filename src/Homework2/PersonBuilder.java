@@ -42,4 +42,8 @@ public class PersonBuilder {
     public String getAddress() {
         return address;
     }
+
+    public Person build(){
+        return new Person(this);
+    }
 }
