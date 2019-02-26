@@ -11,7 +11,6 @@ public class Hw4T2Classes {
         }
     };
 
-
      static void innerClassMethod(){
          System.out.println("Begin of inner class method");
 
@@ -32,7 +31,6 @@ public class Hw4T2Classes {
          }
      }
 
-
      public static void methodLocalClass(){
 
          final String s = "Hello";
@@ -42,17 +40,13 @@ public class Hw4T2Classes {
              void printText(){
                  System.out.println("Hello from local class");
              }
-
          }
-
          LocalClass localClass = new LocalClass();
          localClass.printText();
      }
 
-
-
     public static void main(String[] args){
-         
+
         anInterface.anonClassTest();
 
         System.out.println();
