@@ -26,15 +26,44 @@ public class Hw4T2Classes {
 
      }
 
-     class nestedInnerClass{
-         public void nestedInnerClassTest
+     class NestedInnerClass{
+         public void nestedInnerClassTest(){
+             System.out.println("Nested inner class");
+         }
      }
 
 
+     public static void methodLocalClass(){
+
+         final String s = "Hello";
+
+         class LocalClass{
+
+             void printText(){
+                 System.out.println("Hello from local class");
+             }
+
+         }
+
+         LocalClass localClass = new LocalClass();
+         localClass.printText();
+     }
+
+
+
     public static void main(String[] args){
+         
         anInterface.anonClassTest();
 
         System.out.println();
         innerClassMethod();
+        System.out.println();
+
+        Hw4T2Classes.NestedInnerClass innerClass = new Hw4T2Classes(). new NestedInnerClass();
+        innerClass.nestedInnerClassTest();
+
+        System.out.println();
+        methodLocalClass();
+
     }
 }
