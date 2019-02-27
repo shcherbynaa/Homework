@@ -4,6 +4,14 @@ public class SortUtils {
 
     static int[] arr = new int[1];
     static int[] arr2 = new int[arr.length];
+    static int tmp;
+
+
+    public static void swap(int arr[], int i, int j){
+        tmp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = tmp;
+    }
 
     public static int[] insertSort(int [] arr){
         int tmp, key, j;
@@ -26,9 +34,7 @@ public class SortUtils {
         for (int i = 0; i < arr.length-1; i++) {
             for (int j = 0; j < arr.length-i-1; j++) {
                 if (arr[j]>arr[j+1]){
-                    tmp = arr[j];
-                    arr[j] = arr[j+1];
-                    arr[j+1] = tmp;
+                    swap(arr, j, j+1);
                 }
             }
         }
@@ -46,9 +52,7 @@ public class SortUtils {
                     min = j;
                 }
             }
-            tmp = arr[min];
-            arr[min] = arr[i];
-            arr[i] = tmp;
+            swap(arr, min, i);
 
         }
 
@@ -77,9 +81,7 @@ public class SortUtils {
                 j--;
             }
             if (i <= j){
-                int tmp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = tmp;
+                swap(arr, i, j);
                 i++;
                 j--;
             }
@@ -121,9 +123,8 @@ public class SortUtils {
 
             for (int j = right; j > left; j--) {
                 if (arr[j] < arr[j - 1]) {
-                    int tmp = arr[j];
-                    arr[j] = arr[j - 1];
-                    arr[j - 1] = tmp;
+                    swap(arr, j, j-1);
+                    
                     flag = true;
                 }
             }
