@@ -124,7 +124,7 @@ public class SortUtils {
             for (int j = right; j > left; j--) {
                 if (arr[j] < arr[j - 1]) {
                     swap(arr, j, j-1);
-                    
+
                     flag = true;
                 }
             }
@@ -138,32 +138,7 @@ public class SortUtils {
         System.arraycopy(arr, 0 , arr2,0, arr.length);
 
         arr2 = insertSort(arr2);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        
 
     }
 
