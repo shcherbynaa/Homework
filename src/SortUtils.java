@@ -3,7 +3,9 @@ public class SortUtils {
     int[] arr = new int[1];
 
     public static int[] insertSort(int [] arr){
-        int tmp, key, j;
+        int tmp;
+        int key;
+        int j;
 
         for (int i = 1; i < arr.length; i++) {
 
