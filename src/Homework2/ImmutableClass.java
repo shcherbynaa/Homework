@@ -4,11 +4,14 @@ public final class ImmutableClass {
 
     private final String name;
     private final String surname;
+    private final MutableClass mutableClass;
 
-    public ImmutableClass(String name, String surname) {
+    public ImmutableClass(String name, String surname, MutableClass mutableClass) {
         this.name = name;
         this.surname = surname;
+        this.mutableClass = mutableClass;
     }
+
 
     public String getName() {
         return name;
@@ -18,10 +21,4 @@ public final class ImmutableClass {
         return surname;
     }
 
-    public static void main(String[] args){
-
-        ImmutableClass immutableClass = new ImmutableClass("Mark", "Krok");
-        System.out.println(immutableClass.getName());
-        System.out.println(immutableClass.getSurname());
-    }
 }
