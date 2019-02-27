@@ -60,12 +60,10 @@ public class SortUtils {
     }
 
     public static int[] quickSort(int[] arr, int left, int right){
-        if (arr.length == 0)
+        if ((arr.length == 0) || (left>=right)){
             return null;
-
-        if (left>=right)
-            return null;
-
+        }
+        
         int m = left + (right-left)/2;
 
         int p = arr[m];
@@ -138,7 +136,7 @@ public class SortUtils {
         System.arraycopy(arr, 0 , arr2,0, arr.length);
 
         arr2 = insertSort(arr2);
-        
+
 
     }
 
