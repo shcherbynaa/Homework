@@ -22,7 +22,7 @@ public class SortUtils {
             j = i-1;
             while (j>=0 &&  arr[j]>key){
                 arr[j+1] = arr[j];
-                j = j-1;
+                j--;
             }
             arr[j+1] = key;
         }
@@ -55,7 +55,6 @@ public class SortUtils {
             swap(arr, min, i);
 
         }
-
         return arr;
     }
 
@@ -92,7 +91,6 @@ public class SortUtils {
         if (right > i){
             quickSort(arr, i, right);
         }
-
         return arr;
     }
 
@@ -107,9 +105,7 @@ public class SortUtils {
 
             for (int i = left; i < right; i++) {
                 if (arr[i] > arr[i + 1]) {
-                    int tmp = (arr[i]);
-                    arr[i] = arr[i + 1];
-                    arr[i + 1] = tmp;
+                    swap(arr, i, i + 1);
                     flag = true;
                 }
             }
@@ -138,10 +134,7 @@ public class SortUtils {
 
         arr2 = insertSort(arr2);
 
-
     }
-
-
 }
 
 

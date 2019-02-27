@@ -1,11 +1,12 @@
 package Homework2;
 
 public class MutableClass {
+
+    private int age;
+
     public MutableClass(int age) {
         this.age = age;
     }
-
-    private int age;
 
     public int getAge() {
         return age;

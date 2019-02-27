@@ -17,6 +17,5 @@ public class Person {
     public static void main(String [] args){
 
         Person person = new PersonBuilder().name("Mark").surname("Krok").phone("09876").address("Main 23").build();
-
     }
 }
